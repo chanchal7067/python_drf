@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv()  # load values from .env file
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -27,8 +30,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SENDGRID_API_KEY = "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"
-DEFAULT_FROM_EMAIL = "patidarchanchal47@gmail.com"
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
 
 
 
